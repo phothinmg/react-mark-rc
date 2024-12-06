@@ -2,7 +2,6 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
-import reactCompiler from "eslint-plugin-react-compiler";
 import eslintConfigPrettier from "eslint-config-prettier";
 import { parseForESLint as babelParser } from "@babel/eslint-parser";
 import { parseForESLint as typescriptParser } from "@typescript-eslint/parser";
@@ -42,16 +41,10 @@ export default [
       react: {
         version: "detect",
       },
-    },
-  },
-  {
-    plugins: {
-      "react-compiler": reactCompiler,
-    },
-    rules: {
-      "react-compiler/react-compiler": "error",
-      "react/jsx-uses-react": "error",
-      "react/jsx-uses-vars": "error",
+      rules: {
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+      },
     },
   },
 ];
