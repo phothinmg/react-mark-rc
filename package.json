@@ -1,0 +1,51 @@
+{
+  "name": "react-mark-rc",
+  "version": "0.1.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve",
+    "lint": "eslint",
+    "format": "prettier --write \"**/*.{ts,tsx,md,mdx,css}\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
+    "@eslint/js": "^9.16.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/showdown": "^2.0.6",
+    "@typescript-eslint/parser": "^8.17.0",
+    "babel-loader": "^9.2.1",
+    "babel-plugin-react-compiler": "^19.0.0-beta-df7b47d-20241124",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-compiler": "^19.0.0-beta-df7b47d-20241124",
+    "globals": "^15.13.0",
+    "prettier": "3.4.2",
+    "react-compiler-webpack": "^0.1.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.17.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "react": "^19.0.0-rc.0",
+    "react-compiler-runtime": "^19.0.0-beta-df7b47d-20241124",
+    "react-dom": "^19.0.0",
+    "showdown": "^2.1.0"
+  }
+}
