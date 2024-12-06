@@ -1,3 +1,5 @@
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -5,7 +7,7 @@ export default {
     "./app/**/*.{ts,js,jsx,tsx,html,css,md,mdx}",
   ],
   presets: [],
-  darkMode: "media", // or 'class'
+  darkMode: "class", // or 'class'
   theme: {
     accentColor: ({ theme }) => ({
       ...theme("colors"),
@@ -1074,5 +1076,5 @@ export default {
       50: "50",
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

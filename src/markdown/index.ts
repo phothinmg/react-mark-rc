@@ -5,7 +5,7 @@ import frontmatter, { type FrontMatterResult } from "../frontmatter/index";
 
 export type ConverterOptions = {
   mdDirectory: string;
-  options?: ShowdownOptions;
+  showdownOptions?: ShowdownOptions;
   flavor?: Flavor;
 };
 export type BlogPost<T> = {
@@ -35,12 +35,12 @@ const converter = (options?: ShowdownOptions) => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function convertFromDirectory<T = Record<string, any>>({
   mdDirectory,
-  options,
+  showdownOptions,
   flavor,
 }: ConverterOptions): Array<BlogPost<T>> {
   const mdFiles = getMdFiles(mdDirectory);
   const flv: Flavor = flavor ?? "github";
-  const cvt = converter(options);
+  const cvt = converter(showdownOptions);
   cvt.setFlavor(flv);
   return mdFiles.map((file) => {
     const rawContent = fs.readFileSync(path.join(mdDirectory, file), "utf-8");
@@ -58,8 +58,20 @@ export function convertFromDirectory<T = Record<string, any>>({
 
 export function getBlogPosts({
   mdDirectory,
-  options,
+  showdownOptions,
   flavor,
 }: ConverterOptions) {
-  return convertFromDirectory({ mdDirectory, options, flavor });
+  return convertFromDirectory({ mdDirectory, showdownOptions, flavor });
+}
+
+export function convertFromContent(
+  rawContent: string,
+  showdownOptions?: ShowdownOptions,
+  flavor?: Flavor,
+) {
+  const content = frontmatter(rawContent).content;
+  const flv: Flavor = flavor ?? "github";
+  const cvt = converter(showdownOptions);
+  cvt.setFlavor(flv);
+  return cvt.makeHtml(content);
 }
